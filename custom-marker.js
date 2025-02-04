@@ -13,58 +13,51 @@ jQuery(document).ready(function ($) {
 			scale: 0.3,
 			anchor: new google.maps.Point(57, 40),
 		},
-		// Generic university marker in different colors
-		// Add your specific university SVGs here when ready
 		generic1: {
 			path: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z',
-			fillColor: '#1f3d7a', // Navy blue
+			fillColor: '#1f3d7a',
 			scale: 2,
 			anchor: new google.maps.Point(12, 22),
 		},
 		generic2: {
 			path: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z',
-			fillColor: '#2d8659', // Forest green
+			fillColor: '#2d8659',
 			scale: 2,
 			anchor: new google.maps.Point(12, 22),
 		},
 		generic3: {
 			path: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z',
-			fillColor: '#7d3f98', // Purple
+			fillColor: '#7d3f98',
 			scale: 2,
 			anchor: new google.maps.Point(12, 22),
 		},
 	};
 
-	// Array of Colorado universities with their specific marker configurations
 	const universities = [
 		{
 			name: 'University of Denver',
 			lat: 39.6766,
 			lng: -104.9619,
-			icon: 'du', // Uses DU specific logo
+			icon: 'du',
 		},
 		{
 			name: 'University of Colorado Boulder',
 			lat: 40.0076,
 			lng: -105.2659,
-			icon: 'generic1', // Uses navy blue marker
-			// Future: icon: 'cu' for CU specific logo
+			icon: 'generic1',
 		},
 		{
 			name: 'Colorado State University',
 			lat: 40.5734,
 			lng: -105.0865,
-			icon: 'generic2', // Uses forest green marker
-			// Future: icon: 'csu' for CSU specific logo
+			icon: 'generic2',
 		},
 		{
 			name: 'University of Colorado Denver',
 			lat: 39.7446,
 			lng: -105.0027,
-			icon: 'generic3', // Uses purple marker
-			// Future: icon: 'ucd' for UCD specific logo
+			icon: 'generic3',
 		},
-		// Add more universities as needed
 	];
 
 	function addCustomMarkers(mapInstance, existingMarkers) {
@@ -84,9 +77,8 @@ jQuery(document).ready(function ($) {
 					university.lng
 				);
 
-				// Get the appropriate icon configuration
 				const iconConfig = {
-					...markerIcons[university.icon], // Spread the base icon configuration
+					...markerIcons[university.icon],
 					fillOpacity: 1,
 					strokeWeight: 0,
 				};
@@ -98,11 +90,8 @@ jQuery(document).ready(function ($) {
 					clickable: false,
 				});
 
-				// Add to our tracking array
+				// Only add to our tracking array, not to existingMarkers
 				customMarkers.push(marker);
-
-				// Add to existing markers array
-				existingMarkers.push(marker);
 			});
 
 			console.log('University markers added successfully');
@@ -116,7 +105,6 @@ jQuery(document).ready(function ($) {
 		window.rentFetchMapHooks = [];
 	}
 
-	// Only add the hook if it hasn't been added before
 	if (!window.rentFetchMapHooks.includes(addCustomMarkers)) {
 		window.rentFetchMapHooks.push(addCustomMarkers);
 	}
