@@ -49,6 +49,13 @@ add_action( 'wp_enqueue_scripts', 'rfcustommarker_enqueue_script', 999 );
  * Let's only enqueue the script in the right place on the site.
  */
 function rfcustommarker_conditional_enqueue() {
-	wp_enqueue_script( 'rfcustommarker' );
+	
+	// bail if this isn't the DU landing page, located here:
+	// https://fourstarrealty.com/du-apartments/?search-propertycategories%5B%5D=491
+	// https://four-star.local/du-apartments/?search-propertycategories%5B%5D=491
+	if ( is_page( 3910974 ) ) {
+		// this is the DU page
+		wp_enqueue_script( 'rfcustommarker' );
+	}
 }
-add_action( 'init', 'rfcustommarker_conditional_enqueue' );
+add_action( 'wp_footer', 'rfcustommarker_conditional_enqueue' );
