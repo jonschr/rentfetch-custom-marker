@@ -3,7 +3,7 @@
 	Plugin Name: Rent Fetch Four Star Custom Marker
 	Plugin URI: https://elod.in
 	Description: Just another plugin
-	Version: 0.1
+	Version: 0.1.1
 	Author: Jon Schroeder
 	Author URI: https://elod.in
 
@@ -27,7 +27,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'RFCM', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'RFCM_VERSION', '0.1' );
+define ( 'RFCM_VERSION', '0.1.1' );
 
 /**
  * Enqueue the main script.
