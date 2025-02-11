@@ -1,6 +1,6 @@
 <?php
 /*
-	Plugin Name: Rent Fetch Custom Marker
+	Plugin Name: Rent Fetch Four Star Custom Marker
 	Plugin URI: https://elod.in
 	Description: Just another plugin
 	Version: 0.1
